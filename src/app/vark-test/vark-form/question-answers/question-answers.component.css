@@ -1,0 +1,20 @@
+.mat-mdc-card {
+    margin: 1rem 0;
+    box-shadow: 0 5px 10px 0 grey;
+    background-color: #F1E7E4;
+}
+
+.answers {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    min-height: 30px;
+}
+
+.answers:hover {
+    background-color: #DCC3BC;
+}
+
+.card label {
+    cursor: pointer;
+}

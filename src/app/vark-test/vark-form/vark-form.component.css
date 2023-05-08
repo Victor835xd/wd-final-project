@@ -1,0 +1,62 @@
+.vark-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+
+    padding: 17px 3px;
+
+    background-color: #820263;
+    font-size: 1rem;
+}
+
+.vark-form-container .vark-form-sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: #2E294E;
+    padding: 20px 5px;
+}
+
+.vark-form-sections .header-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 80px;
+    width: 90%;
+
+    color: white;
+    font-weight: bold;
+    background-color: #D90368;
+    border-radius: 15px;
+}
+
+.vark-form-sections .qa-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px;
+    width: 90%;
+
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: #D90368;
+}
+
+.take-test-section {
+    margin-top: 15px;
+    padding: 20px;
+    min-height: 20px;
+
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}

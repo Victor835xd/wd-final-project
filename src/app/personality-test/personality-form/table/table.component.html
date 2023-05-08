@@ -1,0 +1,43 @@
+<div [formGroup]="this.personalityFormRef">
+    <div [formGroupName]="getTopicFormGroupName()">
+        <p>{{ TOPIC }}</p>
+        <div [formGroup]="tableDataFormRef" class="sub-tables-section">
+            <table formGroupName="firstPersonality"
+                   [dataSource]="this.tableData.firstPersonalityCharacteristics"
+                   mat-table class="mat-elevation-z8">
+                <ng-container matColumnDef="personality">
+                    <th mat-header-cell *matHeaderCellDef> {{ this.tableData.firstPersonality | titlecase }}</th>
+                    <td mat-cell *matCellDef="let element"> {{ element.characteristic }}</td>
+                </ng-container>
+                <ng-container matColumnDef="points">
+                    <td mat-cell *matCellDef="let element">
+                        <mat-slider min="0" max="10" step="1">
+                            <input matSliderThumb (input)="onSliderInput($event, element)"
+                                   [formControlName]="getCharacteristicFromControlName(element)">
+                        </mat-slider>
+                    </td>
+                    <th mat-header-cell *matHeaderCellDef> Puntos</th>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <table formGroupName="secondPersonality"
+                   [dataSource]="this.tableData.secondPersonalityCharacteristics"
+                   mat-table class="mat-elevation-z8">
+                <ng-container matColumnDef="personality">
+                    <th mat-header-cell *matHeaderCellDef> {{ this.tableData.secondPersonality | titlecase }}</th>
+                    <td mat-cell *matCellDef="let element"> {{ element.characteristic }}</td>
+                </ng-container>
+                <ng-container matColumnDef="points">
+                    <td mat-cell *matCellDef="let element">
+                        <input type="hidden" [formControlName]="getCharacteristicFromControlNameFoo(element)">
+                        {{ getPoints(element) }}
+                    </td>
+                    <th mat-header-cell *matHeaderCellDef> Puntos</th>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="card" [formGroup]="varkForm">
+    <mat-card>
+        <mat-card-content>
+            {{ question }}
+            <hr>
+            <div *ngFor="let answer of answers; let idx = index;"
+                 [formGroupName]="getQuestionControlGroupName()" class="answers">
+                <label>
+                    <input [formControlName]="getAnswerControlName(idx)" type="checkbox">
+                    {{ answer }}
+                </label>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

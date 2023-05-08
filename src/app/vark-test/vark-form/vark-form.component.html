@@ -1,0 +1,20 @@
+<div class="vark-form-container">
+    <form class="vark-form-sections" (ngSubmit)="onSubmitForm()">
+        <div class="header-section">
+            Instrucciones: en cada pregunta selecciona la respuesta que mejor explica
+            su preferencia, seleccione más de una respuesta si una sola no encaja con
+            su percepción.
+        </div>
+        <div class="qa-section">
+            <div class="card">
+                <app-question-answers
+                        *ngFor="let _ of varkQuestions; let idx = index"
+                        [questionIndex]="idx">
+                </app-question-answers>
+            </div>
+        </div>
+        <button class="take-test-section" type="submit" mat-raised-button color="primary">
+            Enviar respuestas
+        </button>
+    </form>
+</div>
