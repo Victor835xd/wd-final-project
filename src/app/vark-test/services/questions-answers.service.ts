@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 
 type Question = { question: string };
 type Answers = { answers: string[] };
-type VarkQuestions = Question & Answers;
+export type VarkQuestions = Question & Answers;
 
 @Injectable({
     providedIn: 'root'
@@ -60,6 +60,8 @@ export class QuestionsAnswersService {
         }
     ];
 
+    private _VARK_TYPE_OBTAINED: string = '';
+
     constructor() {
         this.initVarkForm()
     }
@@ -76,7 +78,7 @@ export class QuestionsAnswersService {
         this.varkForm.addControl(`question${index}`, question);
     }
 
-    private initFormControlsOfQuestionFormGroup(formGroup: FormGroup, answers: Array<string>): void {
+    private initFormControlsOfQuestionFormGroup(formGroup: FormGroup, answers: string[]): void {
         answers.forEach((answer: string, index: number) => {
             let answerFormControl = this.formBuilder.control(false);
             formGroup.addControl(`answer${index}`, answerFormControl);
@@ -95,5 +97,9 @@ export class QuestionsAnswersService {
 
     get varkQuestionsRef(): VarkQuestions[] {
         return Array.from(this.varkQuestions);
+    }
+
+    set VARK_TYPE_OBTAINED(value: string) {
+        this._VARK_TYPE_OBTAINED = value;
     }
 }

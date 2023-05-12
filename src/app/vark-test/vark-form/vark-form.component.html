@@ -1,5 +1,5 @@
 <div class="vark-form-container">
-    <form class="vark-form-sections" (ngSubmit)="onSubmitForm()">
+    <form class="vark-form-sections">
         <div class="header-section">
             Instrucciones: en cada pregunta selecciona la respuesta que mejor explica
             su preferencia, seleccione más de una respuesta si una sola no encaja con
@@ -13,7 +13,10 @@
                 </app-question-answers>
             </div>
         </div>
-        <button class="take-test-section" type="submit" mat-raised-button color="primary">
+        <button class="take-test-section" type="button"
+                mat-raised-button color="primary"
+                routerLink="/user-home/vark-result"
+                (click)="onSubmitForm()">
             Enviar respuestas
         </button>
     </form>

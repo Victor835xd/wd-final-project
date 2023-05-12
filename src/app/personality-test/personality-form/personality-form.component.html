@@ -1,7 +1,7 @@
 <div class="personality-form-container">
     <form class="personality-form-sections" (ngSubmit)="onSubmitForm()">
-        <div class="form-tables" *ngFor="let currentTable of TABLES_DATA; let idx = index">
-            <app-table [tableData]="currentTable" [topicIdx]="idx"></app-table>
+        <div class="form-tables" *ngFor="let _ of TABLES_DATA; let idx = index">
+            <app-table [topicIdx]="idx"></app-table>
         </div>
         <button type="submit" mat-raised-button color="primary">Send</button>
     </form>

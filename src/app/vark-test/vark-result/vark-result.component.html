@@ -1,0 +1,7 @@
+<div class="vark-result-container" [ngSwitch]="this.varkType">
+    <app-visual *ngSwitchCase="'visual'"></app-visual>
+    <app-aural *ngSwitchCase="'aural'"></app-aural>
+    <app-read *ngSwitchCase="'read'"></app-read>
+    <app-kinesthetic *ngSwitchCase="'kinesthetic'"></app-kinesthetic>
+    <div *ngSwitchDefault>Error!</div>
+</div>

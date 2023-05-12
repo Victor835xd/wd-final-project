@@ -1,4 +1,9 @@
 .sub-tables-section {
     display: flex;
-    width: 50%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.sub-tables-section table{
+    width: 600px;
 }

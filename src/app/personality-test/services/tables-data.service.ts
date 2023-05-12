@@ -10,9 +10,10 @@ export class TablesDataService {
     private _personalityForm: FormGroup = this.formBuilder.group({});
 
     private _TOPICS: string[] = [
-        "1. Energía, focalización y actitud vital",
-        "2. Manejo de la información y actitud ante el entorno",
-        "3. Actitud y toma de decisiones"
+        "Energía, focalización y actitud vital",
+        "Manejo de la información y actitud ante el entorno",
+        "Actitud y toma de decisiones",
+        "Ambiente de trabajo, estilo de vida en el entorno e interacción"
     ]
 
     private _TABLES_DATA: TableData[] = [
@@ -58,6 +59,20 @@ export class TablesDataService {
                 {characteristic: 'Aparenta ser cálido y amistoso'},
             ]
         },
+        {
+            firstPersonality: 'calificador',
+            firstPersonalityCharacteristics: [
+                {characteristic: 'Trabajo primero, jugar después'},
+                {characteristic: 'Prefiere terminar proyectos'},
+                {characteristic: 'Se siente a gusto llevando sus agendas'},
+            ],
+            secondPersonality: 'perceptivo',
+            secondPersonalityCharacteristics: [
+                {characteristic: 'Jugar primero, trabajas después'},
+                {characteristic: 'Prefiere empezar proyectos'},
+                {characteristic: 'Desea la libertad de la espontaneidad'},
+            ]
+        },
     ]
 
     constructor() {
@@ -78,15 +93,16 @@ export class TablesDataService {
             });
             this._personalityForm.addControl(`topic${index}`, tableFormGroup);
         });
+        // console.log(this._personalityForm.controls);
     }
 
-    private initFormControlsOfPersonalityFormGroup(formGroup: FormGroup,
-                                                   tableData: TableData,
+    private initFormControlsOfPersonalityFormGroup(formGroup: FormGroup, tableData: TableData,
                                                    initState: number): void {
         const numCharacteristics = tableData.firstPersonalityCharacteristics.length
         for (let i = 0; i < numCharacteristics; i++) {
             formGroup.addControl(`answer${i}`, this.formBuilder.control(initState));
         }
+        formGroup.addControl('total', this.formBuilder.control(0));
     }
 
     get personalityForm(): FormGroup {
